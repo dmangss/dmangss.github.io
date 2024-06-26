@@ -1,0 +1,16 @@
+body {
+  min-height: 2000px;
+}
+
+.home {
+  padding-top: 6rem;
+  background-color: lightcyan;
+}
+
+#portofolio {
+  background-color: lightcyan;
+}
+
+footer {
+  background-color: lightcyan;
+}
