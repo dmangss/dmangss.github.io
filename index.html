@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <script src="js/bootstrap.bundle.min.js"></script>
 
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- My CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -82,7 +85,7 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-6">
+          <div class="col-md-6" data-aos="fade-right">
             <h3 class="fs-4 mb-3">Farhan Ummardi - Information Systems</h3>
             <p class="text-muted">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam nostrum odio fuga molestiae aspernatur sint consequatur exercitationem obcaecati pariatur. Saepe nemo unde architecto odio laudantium suscipit tenetur doloribus
@@ -94,7 +97,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 mt-5 mt-md-0">
+          <div class="col-md-6 mt-5 mt-md-0" data-aos="fade-left">
             <div class="skill-item mb-4">
               <h3 class="fs-6">HTML</h3>
               <div class="progress" style="height: 5px">
@@ -151,15 +154,15 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-sm-5 col-sm-4">
-            <div class="portofolio-item">
+          <div class="col-md-4">
+            <div class="portofolio-item" data-aos="zoom-in">
               <img src="img/1.jpg" class="w-100 img-thumbnail" style="height: 250px" alt="portofolio-item" />
               <h3 class="text-center fs-5 my-2">Scientific Writing Website</h3>
               <p class="mb-1 text-center"><a href="" class="text-success text-decoration-none">View Website</a></p>
             </div>
           </div>
-          <div class="col-sm-5 col-sm-4">
-            <div class="portofolio-item">
+          <div class="col-sm-4">
+            <div class="portofolio-item" data-aos="zoom-in">
               <img src="img/2.jpg" class="w-100 img-thumbnail" style="height: 250px" alt="portofolio-item" />
               <h3 class="text-center fs-5 my-2">Sentiment Analysis</h3>
               <p class="mb-1 text-center"><a href="" class="text-success text-decoration-none">View Website</a></p>
@@ -212,7 +215,7 @@
                 <i class="fas fa-map-marker-alt"></i>
               </div>
               <div class="text ms-3">
-                <h3 class="fs-5">Alamat</h3>
+                <h3 class="fs-5">Address</h3>
                 <p class="text-muted">Dewi Sartika Street No. 46A, East Jakarta</p>
               </div>
             </div>
@@ -273,5 +276,13 @@
     <!--Footer End-->
 
     <script src="js/script.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+        duration: 1000,
+      });
+    </script>
   </body>
 </html>
