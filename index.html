@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portofolio | Farhan Ummardi</title>
-    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -156,14 +155,14 @@
         <div class="row justify-content-center">
           <div class="col-md-4">
             <div class="portofolio-item" data-aos="zoom-in">
-              <img src="img/1.jpg" class="w-100 img-thumbnail" style="height: 250px" alt="portofolio-item" />
+              <img src="img/1.PNG" class="w-100 img-thumbnail" style="height: 250px" alt="portofolio-item" />
               <h3 class="text-center fs-5 my-2">Scientific Writing Website</h3>
               <p class="mb-1 text-center"><a href="" class="text-success text-decoration-none">View Website</a></p>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="portofolio-item" data-aos="zoom-in">
-              <img src="img/2.jpg" class="w-100 img-thumbnail" style="height: 250px" alt="portofolio-item" />
+              <img src="img/2.PNG" class="w-100 img-thumbnail" style="height: 250px" alt="portofolio-item" />
               <h3 class="text-center fs-5 my-2">Sentiment Analysis</h3>
               <p class="mb-1 text-center"><a href="" class="text-success text-decoration-none">View Website</a></p>
             </div>
@@ -207,7 +206,7 @@
               </div>
               <div class="text ms-3">
                 <h3 class="fs-5">Phone</h3>
-                <p class="text-muted">0812 8213 8214</p>
+                <p class="text-muted">+6281281035106</p>
               </div>
             </div>
             <div class="contact-item d-flex mb-3">
@@ -216,13 +215,17 @@
               </div>
               <div class="text ms-3">
                 <h3 class="fs-5">Address</h3>
-                <p class="text-muted">Dewi Sartika Street No. 46A, East Jakarta</p>
+                <p class="text-muted">Cililitan Street No. 23A, East Jakarta</p>
               </div>
             </div>
           </div>
           <div class="col-md-7">
             <div class="contact-form">
-              <form action="" method="post">
+              <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+                <strong>Terima kasih!</strong> Pesan anda sudah kami terima.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              <form name="contact-form-farhan">
                 <div class="row">
                   <div class="col-lg-6 mb-4">
                     <input type="text" placeholder="Name" class="form-control form-control-lg fs-6 border-0 shadow-sm" id="name" name="name" required />
@@ -243,7 +246,11 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-12">
-                    <button type="submit" class="btn btn-success px-3">Send Message</button>
+                    <button type="submit" class="btn btn-success px-3 btn-kirim">Send Message</button>
+                    <button class="btn btn-success btn-loading d-none" type="button" disabled>
+                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      Loading...
+                    </button>
                   </div>
                 </div>
               </form>
@@ -274,14 +281,41 @@
       </div>
     </footer>
     <!--Footer End-->
-
-    <script src="js/script.js"></script>
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({
         once: true,
         duration: 1000,
+      });
+    </script>
+
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxsEBwX5l56tRt_jKw6fbadjPjIQ983xvz2QvjKQc0zPt5dtf3nv3iOxViZpfriAEP1mg/exec";
+      const form = document.forms["contact-form-farhan"];
+      const btnKirim = document.querySelector(".btn-kirim");
+      const btnLoading = document.querySelector(".btn-loading");
+      const myAlert = document.querySelector(".my-alert");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        //ketika tombol submit di klik
+        //tampilkan tombol loading, hilangkan tombol kirim
+        btnLoading.classList.toggle("d-none");
+        btnKirim.classList.toggle("d-none");
+
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            //tampilkan tombol kirim, hilangkan tombol loading
+            btnLoading.classList.toggle("d-none");
+            btnKirim.classList.toggle("d-none");
+            //tampilkan alert
+            myAlert.classList.toggle("d-none");
+            //reset form
+            form.reset();
+
+            console.log("Success!", response);
+          })
+          .catch((error) => console.error("Error!", error.message));
       });
     </script>
   </body>
